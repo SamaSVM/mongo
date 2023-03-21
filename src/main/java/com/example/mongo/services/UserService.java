@@ -19,6 +19,10 @@ public final class UserService {
         return userRepository.findAll();
     }
 
+    public List<UserEntity> finByFirstName(final String firstName) {
+        return userRepository.findByFirstName(firstName);
+    }
+
     public void save(UserRequest userRequest) {
         final var user = new UserEntity();
         user.setFirstName(userRequest.firstName());

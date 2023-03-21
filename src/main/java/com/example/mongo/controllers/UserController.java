@@ -15,7 +15,7 @@ import java.util.List;
 public final class UserController {
     private final UserService userService;
 
-    @PostMapping("/save")
+    @PostMapping
     public void findAll(@Valid @RequestBody final UserRequest userRequest) {
         userService.save(userRequest);
     }
@@ -23,5 +23,10 @@ public final class UserController {
     @GetMapping
     public List<UserEntity> findAll() {
         return userService.findAll();
+    }
+
+    @GetMapping("/{firstName}")
+    public List<UserEntity> findByFirstName(@PathVariable final String firstName) {
+        return userService.finByFirstName(firstName);
     }
 }
